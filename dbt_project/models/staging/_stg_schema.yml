@@ -1,0 +1,33 @@
+version: 2
+
+models:
+  - name: stg_bands
+    columns:
+      - name: band_id
+        tests:
+          - unique
+          - not_null
+  - name: stg_albums
+    columns:
+      - name: album_id
+        tests:
+          - unique
+          - not_null
+  - name: stg_setlists
+    columns:
+      - name: setlist_id
+        tests:
+          - unique
+          - not_null
+  - name: stg_songs
+    columns:
+      - name: song_id
+        tests:
+          - unique
+          - not_null
+  - name: stg_band_mapping
+    columns:
+      - name: ma_band_id
+        tests:
+          - unique
+          - not_null

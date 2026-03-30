@@ -1,0 +1,21 @@
+version: 2
+
+models:
+  - name: fct_concerts
+    columns:
+      - name: concert_id
+        tests:
+          - unique
+          - not_null
+  - name: dim_bands
+    columns:
+      - name: ma_band_id
+        tests:
+          - unique
+          - not_null
+  - name: dim_venues
+    columns:
+      - name: venue_id
+        tests:
+          - unique
+          - not_null

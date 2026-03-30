@@ -1,0 +1,39 @@
+# Python-generated files
+__pycache__/
+*.py[oc]
+build/
+dist/
+wheels/
+*.egg-info
+
+# Virtual environments
+.venv
+
+# Data
+data/
+*.duckdb
+*.duckdb.wal
+
+# Secrets
+.env
+.setlist/
+.kaggle/
+**/sa-key.json
+
+# dbt
+dbt_project/target/
+dbt_project/dbt_packages/
+dbt_project/logs/
+
+# Terraform
+terraform/.terraform/
+terraform/terraform.tfstate*
+terraform/terraform.tfvars
+terraform/keys/
+
+# IDE
+.idea/
+.vscode/
+
+# OS
+.DS_Store

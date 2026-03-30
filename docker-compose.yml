@@ -1,0 +1,27 @@
+services:
+  pipeline:
+    build: .
+    volumes:
+      - ./data:/app/data
+      - ${GOOGLE_APPLICATION_CREDENTIALS}:/app/keys/sa-key.json:ro
+    environment:
+      - GCP_PROJECT_ID=${GCP_PROJECT_ID}
+      - GCS_BUCKET=${GCS_BUCKET}
+      - GOOGLE_APPLICATION_CREDENTIALS=/app/keys/sa-key.json
+      - KAGGLE_API_TOKEN=${KAGGLE_API_TOKEN}
+      - SETLISTFM_API_KEY=${SETLISTFM_API_KEY}
+    command: uv run python flows/full_pipeline.py
+
+  dashboard:
+    build: .
+    ports:
+      - "8501:8501"
+    volumes:
+      - ${GOOGLE_APPLICATION_CREDENTIALS}:/app/keys/sa-key.json:ro
+    environment:
+      - GCP_PROJECT_ID=${GCP_PROJECT_ID}
+      - GOOGLE_APPLICATION_CREDENTIALS=/app/keys/sa-key.json
+    command: uv run streamlit run streamlit_app/app.py --server.address 0.0.0.0
+    depends_on:
+      pipeline:
+        condition: service_completed_successfully
