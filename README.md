@@ -94,7 +94,7 @@ You also need:
 ### Step 1: Clone and install dependencies
 
 ```bash
-git clone https://github.com/<your-username>/metal-live-scene-analytics.git
+git clone https://github.com/jvanjeddz/metal-live-scene-analytics.git
 cd metal-live-scene-analytics
 uv sync
 ```
@@ -150,7 +150,7 @@ Edit `.env` with your actual values:
 export KAGGLE_API_TOKEN=your_kaggle_api_token
 export SETLISTFM_API_KEY=your_setlistfm_api_key
 export GCP_PROJECT_ID=your-new-gcp-project-id
-export GCP_PROJECT_ID=your-new-gcp-bucket
+export GCS_BUCKET=your-new-gcp-bucket
 export GOOGLE_APPLICATION_CREDENTIALS=/full/path/to/terraform/keys/sa-key.json
 ```
 
